@@ -53,7 +53,7 @@
 
   <!-- ✅ Proper login script -->
   <script type="module">
-    import { auth, db } from "/js/firebase.js";
+    import { auth, db } from "../js/firebase.js";
     import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
     import { getDoc, doc } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
@@ -81,11 +81,11 @@
 
         // ✅ Redirect based on role
         if (role === "student") {
-          window.location.href = "dashboard-student.html";
+          window.location.href = "../src/dashboard-student.html";
         } else if (role === "teacher") {
-          window.location.href = "dashboard-teacher.html";
+          window.location.href = "../src/dashboard-teacher.html";
         } else if (role === "admin") {
-          window.location.href = "dashboard-admin.html";
+          window.location.href = "../src/dashboard-admin.html";
         }
       } catch (error) {
         console.error("Login failed:", error.message);
