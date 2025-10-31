@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { auth, db } from "../firebase.js";
+=======
+import { auth, db } from "../js/firebase.js";
+>>>>>>> 417ea5abc3690ed6b906eec509820571c0ee86ce
 import {
     onAuthStateChanged,
     signOut,
