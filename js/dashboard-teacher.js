@@ -1,4 +1,4 @@
-import { auth, db } from "/js/firebase.js";
+import { auth, db } from "../firebase.js";
 import {
     onAuthStateChanged,
     signOut,
@@ -32,7 +32,7 @@ let currentProfile = null;
 // Check if teacher is logged in
 onAuthStateChanged(auth, async (user) => {
     if (!user) {
-        window.location.href = "login.html";
+        window.location.href = "../src/login.html";
         return;
     }
 
@@ -42,7 +42,7 @@ onAuthStateChanged(auth, async (user) => {
     const teacherDoc = await getDoc(doc(db, "users", user.uid));
     if (!teacherDoc.exists() || teacherDoc.data().role !== "teacher") {
         alert("Access denied! Only teachers allowed.");
-        window.location.href = "login.html";
+        window.location.href = "../src/login.html";
         return;
     }
 
@@ -294,7 +294,7 @@ onAuthStateChanged(auth, async (user) => {
     // Logout
     logoutBtn.addEventListener("click", async () => {
         await signOut(auth);
-        window.location.href = "login.html";
+        window.location.href = "../src/login.html";
     });
 
 });

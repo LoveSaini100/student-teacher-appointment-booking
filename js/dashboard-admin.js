@@ -1,4 +1,4 @@
-import { auth, db, firebaseConfig } from "./firebase.js";
+import { auth, db, firebaseConfig } from "../firebase.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
 import {
@@ -92,7 +92,7 @@ function createBadge(text, type) {
 // AUTHENTICATION & INITIALIZATION
 onAuthStateChanged(auth, async (user) => {
     if (!user) {
-        window.location.href = "login.html";
+        window.location.href = "../src/login.html";
         return;
     }
 
@@ -105,7 +105,7 @@ onAuthStateChanged(auth, async (user) => {
         if (!profileSnap.exists()) {
             alert("Admin profile not found!");
             await signOut(auth);
-            window.location.href = "login.html";
+            window.location.href = "../src/login.html";
             return;
         }
 
@@ -114,7 +114,7 @@ onAuthStateChanged(auth, async (user) => {
         if (currentProfile.role !== "admin") {
             alert("Access denied! Admin privileges required.");
             await signOut(auth);
-            window.location.href = "login.html";
+            window.location.href = "../src/login.html";
             return;
         }
 

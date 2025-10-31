@@ -53,7 +53,7 @@
 
   <!-- ✅ Proper login script -->
   <script type="module">
-    import { auth, db } from "../js/firebase.js";
+    import { auth, db } from "../firebase.js";
     import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
     import { getDoc, doc } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
@@ -96,16 +96,16 @@
     
     // Show/Hide password toggle
     document.getElementById("togglePassword").addEventListener("click", () => {
-    const passwordInput = document.getElementById("password");
-    const toggleBtn = document.getElementById("togglePassword");
+      const passwordInput = document.getElementById("password");
+      const toggleBtn = document.getElementById("togglePassword");
 
-    if (passwordInput.type === "password") {
-       passwordInput.type = "text";
-      toggleBtn.textContent = "Hide"; 
-    } else {
-      passwordInput.type = "password";
-      toggleBtn.textContent = "Show"; 
-    }
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+       toggleBtn.textContent = "Hide"; 
+      } else {
+        passwordInput.type = "password";
+        toggleBtn.textContent = "Show"; 
+      }
     });
 
   </script>

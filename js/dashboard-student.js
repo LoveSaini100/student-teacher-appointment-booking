@@ -1,4 +1,4 @@
-import { auth, db } from "/js/firebase.js";
+import { auth, db } from "../firebase.js";
 
 // Firestore
 import {
@@ -30,7 +30,7 @@ let conversationUnsubscribe = null;
 
 onAuthStateChanged(auth, async (user) => {
     if (!user) {
-        window.location.href = "login.html";
+        window.location.href = "../src/login.html";
         return;
     }
     currentUser = user;
@@ -40,22 +40,22 @@ onAuthStateChanged(auth, async (user) => {
         if (!profileSnap.exists()) {
             alert("Profile not found. Please register again.");
             await signOut(auth);
-            window.location.href = "register.html";
+            window.location.href = "../src/register.html";
             return;
         }
         currentProfile = profileSnap.data();
 
         if (currentProfile.role !== "student") {
-            if (currentProfile.role === "teacher") window.location.href = "dashboard-teacher.html";
-            else if (currentProfile.role === "admin") window.location.href = "dashboard-admin.html";
-            else window.location.href = "login.html";
+            if (currentProfile.role === "teacher") window.location.href = "../src/dashboard-teacher.html";
+            else if (currentProfile.role === "admin") window.location.href = "../src/dashboard-admin.html";
+            else window.location.href = "../src/login.html";
             return;
         }
 
         if (currentProfile.active === false) {
             alert("Your account is pending approval by the admin.");
             await signOut(auth);
-            window.location.href = "login.html";
+            window.location.href = "../src/login.html";
             return;
         }
 
@@ -82,7 +82,7 @@ document.getElementById("logoutBtn").addEventListener("click", async () => {
     try {
         if (conversationUnsubscribe) conversationUnsubscribe();
         await signOut(auth);
-        window.location.href = "login.html";
+        window.location.href = "../src/login.html";
     } catch (error) {
         console.error("Logout error:", error);
     }
