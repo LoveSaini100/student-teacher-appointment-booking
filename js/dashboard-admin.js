@@ -1,4 +1,4 @@
-import { auth, db, firebaseConfig } from "./firebase.js";
+import { auth, db, firebaseConfig } from "../firebase.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
 import {
